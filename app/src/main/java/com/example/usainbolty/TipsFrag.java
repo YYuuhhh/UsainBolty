@@ -26,17 +26,13 @@ public class TipsFrag extends Fragment {
 
         ListView listView = root.findViewById(R.id.listView);
 
-// определяем строковый массив
-        final String[] Nam = new String[] {
-                "E100", "E101", "E102", "E103", "E104",
-                "E105",  "E106",  "E107", "E108", "E109", "E110", "E111", "E120",
-                "E121", "E122", "E123", "E124", "E125", "E126", "E127", "E128", "E129"
-        };
+
+
         ArrayList<String> Names = new ArrayList<String>();
 
         int[] nazv={R.string.n1,R.string.n2,R.string.n3,R.string.n4,R.string.n5,R.string.n6,R.string.n7};
 
-        for(int i=0;i<Nam.length;i++){
+        for(int i=0;i<nazv.length;i++){
 
             Names.add(getResources().getString(nazv[i]));
         }
