@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/navigation_txt"
-        android:icon="@drawable/ic_baseline_accessible_24"
-        android:title="Txt" />
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="Info" />
 
 </menu>
