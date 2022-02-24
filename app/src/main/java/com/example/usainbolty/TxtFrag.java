@@ -37,6 +37,7 @@ public class TxtFrag extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         adapter = new MFA(fragmentManager,getLifecycle());
         viewPager2.setAdapter(adapter);
+        viewPager2.setUserInputEnabled(false);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

@@ -8,15 +8,11 @@
 
     <TextView
         android:id="@+id/ty2"
-        android:layout_width="411dp"
-        android:layout_height="637dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="94dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="376dp"
+        android:layout_height="612dp"
+        android:layout_marginTop="48dp"
         android:text="@string/sheesh5"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
