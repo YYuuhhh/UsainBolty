@@ -7,12 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="Gradient1">#00FF00</color>
-    <color name="Gradient2">#F0FF00</color>
-    <color name="Gradient3">#FF8000</color>
-    <color name="Gradient4">#FF0000</color>
     <color name="lightgr">#228327</color>
     <color name="darkgr">#1b691f</color>
     <color name="backgr">#120b2d</color>
     <color name="gray">#808080</color>
+
 </resources>
