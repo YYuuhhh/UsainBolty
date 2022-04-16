@@ -7,12 +7,21 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatDelegate;
+=======
+>>>>>>> 8aae9792b2b83e9412e2e18adcaea66011c5dbec
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
     int b=0;// 0-светлая 1-темная
@@ -47,22 +56,27 @@ public class MainActivity extends AppCompatActivity {
     // Остальной код ниже не изменился
 
 
+    TipsFrag tipsFrag = new TipsFrag();
+    TxtFrag txtFrag = new TxtFrag();
+    CalcFrag calcFrag = new CalcFrag();
+    public static Menu menu = null;
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         public boolean onNavigationItemSelected(MenuItem param1MenuItem) {
-            TipsFrag tipsFrag;
-            TxtFrag txtFrag;
-            CalcFrag calcFrag;
             switch (param1MenuItem.getItemId()) {
                 case R.id.navigation_calc:
-                    calcFrag = new CalcFrag();
+                    menu.findItem(R.id.arrow_back).setEnabled(false);
+                    menu.findItem(R.id.arrow_forward).setEnabled(false);
                     MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, calcFrag).commit();
                     return true;
                 case R.id.navigation_tips:
-                    tipsFrag = new TipsFrag();
+                    menu.findItem(R.id.arrow_back).setEnabled(false);
+                    menu.findItem(R.id.arrow_forward).setEnabled(false);
                     MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, tipsFrag).commit();
                     return true;
                 case R.id.navigation_txt:
-                    txtFrag = new TxtFrag();
+                    menu.findItem(R.id.arrow_back).setEnabled(false);
+                    menu.findItem(R.id.arrow_forward).setEnabled(false);
                     MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, txtFrag).commit();
                     return true;
             }
@@ -79,14 +93,71 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+<<<<<<< HEAD
 
         ((BottomNavigationView)findViewById(R.id.nav_view)).setOnNavigationItemSelectedListener(this.navListener);
         if (paramBundle == null)
+=======
+        ((BottomNavigationView)findViewById(R.id.nav_view)).setOnItemSelectedListener(this.navListener);
+        if (paramBundle == null) {
+>>>>>>> 8aae9792b2b83e9412e2e18adcaea66011c5dbec
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new CalcFrag()).commit();
+        }
 
 
     }
+<<<<<<< HEAD
 
+=======
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.calc_menu,menu);
+        this.menu = menu;
+        getSupportActionBar().setTitle("Бобр");
+        menu.findItem(R.id.arrow_back).setEnabled(false);
+        menu.findItem(R.id.arrow_forward).setEnabled(false);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.arrow_back:
+                menu.findItem(R.id.arrow_back).setEnabled(true);
+                menu.findItem(R.id.arrow_forward).setEnabled(true);
+                CalcFrag.viewPager.setCurrentItem(CalcFrag.viewPager.getCurrentItem() - 1,false);
+                switch (CalcFrag.viewPager.getCurrentItem()){
+                    case 0:
+                        getSupportActionBar().setTitle("Бобр");
+                        item.setEnabled(false);
+                        break;
+                    case 1:
+                        getSupportActionBar().setTitle("Опшнс");
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + CalcFrag.viewPager.getCurrentItem());
+                }
+                return true;
+            case R.id.arrow_forward:
+                menu.findItem(R.id.arrow_back).setEnabled(true);
+                menu.findItem(R.id.arrow_forward).setEnabled(true);
+                CalcFrag.viewPager.setCurrentItem(CalcFrag.viewPager.getCurrentItem() + 1,false);
+                switch (CalcFrag.viewPager.getCurrentItem()){
+                    case 1:
+                        getSupportActionBar().setTitle("Опшнс");
+                        break;
+                    case 2:
+                        getSupportActionBar().setTitle("Результ");
+                        item.setEnabled(false);
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + CalcFrag.viewPager.getCurrentItem());
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+>>>>>>> 8aae9792b2b83e9412e2e18adcaea66011c5dbec
 }
 
 

@@ -1,6 +1,7 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+<<<<<<< HEAD
     <style name="Theme.UsainBolty" parent="Theme.Material3.Dark.NoActionBar">
 
         <item name="colorPrimary">@color/gray</item>
@@ -8,6 +9,13 @@
         <item name="colorPrimaryDark">@color/darkgr</item>
 
         <item name="colorOnPrimary">@color/white</item>
+=======
+    <style name="Theme.UsainBolty" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+>>>>>>> 8aae9792b2b83e9412e2e18adcaea66011c5dbec
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
