@@ -15,5 +15,11 @@
         android:icon="@drawable/ic_baseline_arrow_forward_24"
         app:showAsAction="always"
         android:title="Forward" />
+    <item
+        android:id="@+id/theme"
+        android:icon="@drawable/ic_baseline_wb_sunny_24"
+        android:title="1"
+        android:contentDescription="op"
+        app:showAsAction="ifRoom" />
 
 </menu>

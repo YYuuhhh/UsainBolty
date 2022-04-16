@@ -1,6 +1,5 @@
- package com.example.usainbolty;
+package com.example.usainbolty;
 
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,10 +8,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatDelegate;
-=======
->>>>>>> 8aae9792b2b83e9412e2e18adcaea66011c5dbec
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -24,38 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
-    int b=0;// 0-светлая 1-темная
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu1, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("tag","kaif");
-        if(item.getItemId() == R.id.theme) {
-            if(b==0){
-
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    b=1;
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-
-            }
-            else{
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                b=0;
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }
-
-
-        }
-        return true;
-    }
-
-    // Остальной код ниже не изменился
-
-
+    int b=0;
     TipsFrag tipsFrag = new TipsFrag();
     TxtFrag txtFrag = new TxtFrag();
     CalcFrag calcFrag = new CalcFrag();
@@ -86,41 +51,46 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
-
         setContentView(R.layout.main_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Ahtung dialog = new Ahtung();
+        dialog.show(getSupportFragmentManager(), "custom");
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-<<<<<<< HEAD
-
-        ((BottomNavigationView)findViewById(R.id.nav_view)).setOnNavigationItemSelectedListener(this.navListener);
-        if (paramBundle == null)
-=======
         ((BottomNavigationView)findViewById(R.id.nav_view)).setOnItemSelectedListener(this.navListener);
         if (paramBundle == null) {
->>>>>>> 8aae9792b2b83e9412e2e18adcaea66011c5dbec
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new CalcFrag()).commit();
         }
 
-
     }
-<<<<<<< HEAD
-
-=======
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.calc_menu,menu);
         this.menu = menu;
-        getSupportActionBar().setTitle("Бобр");
+
         menu.findItem(R.id.arrow_back).setEnabled(false);
         menu.findItem(R.id.arrow_forward).setEnabled(false);
         return true;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.theme) {
+            if(b==0){
+
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                b=1;
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+            }
+            else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                b=0;
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+
+
+        }
         switch (item.getItemId()) {
+
+
             case R.id.arrow_back:
                 menu.findItem(R.id.arrow_back).setEnabled(true);
                 menu.findItem(R.id.arrow_forward).setEnabled(true);
@@ -157,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
->>>>>>> 8aae9792b2b83e9412e2e18adcaea66011c5dbec
 }
 
 
