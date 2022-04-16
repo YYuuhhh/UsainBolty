@@ -7,14 +7,23 @@
 
 
     <ListView
+        android:divider="@null"
         android:id="@+id/listView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ListView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        app:rippleColor="@color/Gradient1"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_baseline_tips_and_updates_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

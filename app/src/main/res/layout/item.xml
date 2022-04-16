@@ -3,18 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view1"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:cardElevation="16dp"
         android:layout_margin="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:cardCornerRadius="16dp"
+        app:cardElevation="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,34 +23,52 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/linear2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
             android:orientation="vertical">
-
             <TextView
+                android:layout_margin="5dp"
+                android:id="@+id/heading"
+                android:textSize="30dp"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"></TextView>
 
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:layout_marginBottom="15dp"
-                android:text="Суета2"
-
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:orientation="horizontal">
 
 
 
+                <TextView
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:id="@+id/main_text"
+                    android:gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="20dp"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"></TextView>
+                <ImageView
+                    android:gravity="center"
+
+                    android:id="@+id/ig"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"></ImageView>
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 
