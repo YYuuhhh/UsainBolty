@@ -10,7 +10,6 @@
         android:id="@+id/listView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:divider="@null"
         android:dividerHeight="0dp"
         android:layout_marginBottom="50dp"
@@ -18,10 +17,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ListView>
 
-=======
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ListView>
->>>>>>> 8aae9792b2b83e9412e2e18adcaea66011c5dbec
 </androidx.constraintlayout.widget.ConstraintLayout>
