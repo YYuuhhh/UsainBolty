@@ -3,19 +3,17 @@
 
     <item
         android:id="@+id/navigation_calc"
-        android:icon="@drawable/ic_baseline_calculate_24"
+        android:icon="@drawable/ic_baseline_accessible_forward_24"
         android:title="Calculator" />
 
     <item
         android:id="@+id/navigation_tips"
-        android:icon="@drawable/ic_baseline_checklist_rtl_24"
+        android:icon="@drawable/ic_baseline_accessible_24"
         android:title="Tips" />
 
     <item
         android:id="@+id/navigation_txt"
-        android:icon="@drawable/ic_baseline_accessible_24"
-        android:title="Txt" />
-
-
+        android:icon="@drawable/ic_baseline_airline_seat_recline_normal_24"
+        android:title="Info" />
 
 </menu>

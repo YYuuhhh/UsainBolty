@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "422795631926",
+    "project_id": "usainbolty-f3213",
+    "storage_bucket": "usainbolty-f3213.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422795631926:android:8bc1e84f95764f7a1a6797",
+        "android_client_info": {
+          "package_name": "com.example.usainbolty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422795631926-tqbq4n4tcg14debmn70r6ef7loh9b80e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ-_yIzMOnzCFIp9fwIc4QJYqBUbOxbR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422795631926-tqbq4n4tcg14debmn70r6ef7loh9b80e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
