@@ -42,7 +42,6 @@ public class CalcFragInst extends Fragment {
         AppliancesList.add(new Appliances("Аналоговые часы","Наручные часы швейцарского производства",2,R.drawable.watch));
         AppliancesList.add(new Appliances("Электрическая открывашка для консервов","Очень опасна для простых смертных",60,R.drawable.canopener));
         AppliancesList.add(new Appliances("Зарядное устройство","Зарядное устройство USB type-c",3,R.drawable.charger));
-        AppliancesList.add(new Appliances("Тостер","Типичный домашний тостер от Philips",1,R.drawable.toaster));
         switch (page) {
             default:
                 view = inflater.inflate(R.layout.calc_frag_pg1, container, false);
