@@ -19,9 +19,11 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.yandex.mapkit.MapKitFactory;
 
 public class MainActivity extends AppCompatActivity {
-    int b=0;
+    public static int b=0;
+    public static boolean logged=false;
     TipsFrag tipsFrag = new TipsFrag();
     TxtFrag txtFrag = new TxtFrag();
     CalcFrag calcFrag = new CalcFrag();
@@ -65,8 +67,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(paramBundle);
         setContentView(R.layout.main_activity);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        Ahtung dialog = new Ahtung();
-        dialog.show(getSupportFragmentManager(), "custom");
+        if(!MainActivity.logged)
+            MapKitFactory.setApiKey("9c0ec42f-f0a8-4782-b454-d9e0c2f42780");
+        if(!logged) {
+            Ahtung dialog = new Ahtung();
+            dialog.show(getSupportFragmentManager(), "custom");
+            logged=true;
+        }
         getSupportActionBar().setTitle("Выбор устройства");
         ((BottomNavigationView) findViewById(R.id.nav_view)).setOnItemSelectedListener(this.navListener);
         if (paramBundle == null) {
