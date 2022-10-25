@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     TipsFrag tipsFrag = new TipsFrag();
     TxtFrag txtFrag = new TxtFrag();
     CalcFrag calcFrag = new CalcFrag();
+    MapFrag mapFrag = new MapFrag();
     public static Menu menu = null;
     private FirebaseAnalytics mFirebaseAnalytics;
 
@@ -48,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.arrow_forward).setEnabled(false);
                     getSupportActionBar().setTitle("Информация");
                     MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, txtFrag).commit();
+                    return true;
+                case R.id.navigation_map:
+                    menu.findItem(R.id.arrow_back).setEnabled(false);
+                    menu.findItem(R.id.arrow_forward).setEnabled(false);
+                    getSupportActionBar().setTitle("Карта");
+                    MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mapFrag).commit();
                     return true;
             }
             return true;

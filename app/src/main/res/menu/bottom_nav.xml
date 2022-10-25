@@ -7,6 +7,11 @@
         android:title="Calculator" />
 
     <item
+        android:id="@+id/navigation_map"
+        android:icon="@drawable/ic_baseline_assist_walker_24"
+        android:title="HeatMap" />
+
+    <item
         android:id="@+id/navigation_tips"
         android:icon="@drawable/ic_baseline_accessible_24"
         android:title="Tips" />
