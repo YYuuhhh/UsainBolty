@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(paramBundle);
         setContentView(R.layout.main_activity);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        if(!MainActivity.logged)
+        if(!logged)
             MapKitFactory.setApiKey("9c0ec42f-f0a8-4782-b454-d9e0c2f42780");
         if(!logged) {
             Ahtung dialog = new Ahtung();
