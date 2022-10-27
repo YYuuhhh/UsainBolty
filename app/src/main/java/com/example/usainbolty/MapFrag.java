@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.yandex.mapkit.Animation;
@@ -22,7 +23,7 @@ import com.yandex.mapkit.user_location.UserLocationObjectListener;
 import com.yandex.mapkit.user_location.UserLocationView;
 import com.yandex.runtime.image.ImageProvider;
 
-public class MapFrag extends Fragment {
+public class MapFrag extends Fragment implements UserLocationObjectListener {
 
     private MapView mapview;
     private UserLocationLayer userLocationLayer;
@@ -43,7 +44,7 @@ public class MapFrag extends Fragment {
         userLocationLayer = mapKit.createUserLocationLayer(mapview.getMapWindow());
         userLocationLayer.setVisible(true);
         userLocationLayer.setHeadingEnabled(true);
-        userLocationLayer.setObjectListener(userLocationLayer);
+        userLocationLayer.setObjectListener(this);
     }
 
     @Override
@@ -66,6 +67,7 @@ public class MapFrag extends Fragment {
         mapview.onStart();
     }
 
+
     @Override
     public void onObjectAdded(UserLocationView userLocationView) {
         userLocationLayer.setAnchor(
@@ -79,6 +81,13 @@ public class MapFrag extends Fragment {
         userLocationView.getAccuracyCircle().setFillColor(Color.RED);
     }
 
+    @Override
+    public void onObjectRemoved(@NonNull UserLocationView userLocationView) {
 
+    }
 
+    @Override
+    public void onObjectUpdated(@NonNull UserLocationView userLocationView, @NonNull ObjectEvent objectEvent) {
+
+    }
 }
