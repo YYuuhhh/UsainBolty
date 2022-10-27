@@ -32,11 +32,10 @@ public class MapFrag extends Fragment implements UserLocationObjectListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        MapKitFactory.initialize(getActivity());
+        MapKitFactory.initialize(getContext());
         MapKit mapKit = MapKitFactory.getInstance();
         mapview = getActivity().findViewById(R.id.mapview);
         mapview.getMap().setNightModeEnabled(MainActivity.b == 1);
-        mapview.getMap().setRotateGesturesEnabled(false);
         mapview.getMap().move(
                 new CameraPosition(new Point(55.160607, 61.370242), 11.0f, 0.0f, 0.0f),
                 new Animation(Animation.Type.SMOOTH, 0),

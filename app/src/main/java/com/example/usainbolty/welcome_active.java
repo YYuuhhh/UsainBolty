@@ -42,14 +42,16 @@ public class welcome_active extends AppCompatActivity {
 
                      @Override
                      public void onPermissionDenied(List<String> deniedPermissions) {
-                         Toast.makeText(welcome_active.this, "пошел нахуй\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                         Toast.makeText(welcome_active.this, "вы не увидите своего положения на карте\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                         Intent intent = new Intent(welcome_active.this,MainActivity.class);
+                         startActivity(intent);
                      }
 
 
                  };
                  TedPermission.create()
                          .setPermissionListener(permissionlistener)
-                         .setDeniedMessage("Иди\n\n нахуй, врубай чурка [Setting] > [Permission]")
+                         .setDeniedMessage("Рекомендуем включить доступ, чтобы получить более полезную для вас информацию\n\n[Setting] > [Permission]")
                          .setPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
                          .check();
              }
