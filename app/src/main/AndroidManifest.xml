@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UsainBolty">
         <activity
-            android:name=".welcome_active"
+            android:name=".WelcomeActive"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

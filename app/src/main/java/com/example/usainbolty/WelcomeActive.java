@@ -12,7 +12,7 @@ import com.gun0912.tedpermission.normal.TedPermission;
 
 import java.util.List;
 
-public class welcome_active extends AppCompatActivity {
+public class WelcomeActive extends AppCompatActivity {
 
 
     @Override
@@ -36,14 +36,14 @@ public class welcome_active extends AppCompatActivity {
                  PermissionListener permissionlistener = new PermissionListener() {
                      @Override
                      public void onPermissionGranted() {
-                         Intent intent = new Intent(welcome_active.this,MainActivity.class);
+                         Intent intent = new Intent(WelcomeActive.this,MainActivity.class);
                          startActivity(intent);
                      }
 
                      @Override
                      public void onPermissionDenied(List<String> deniedPermissions) {
-                         Toast.makeText(welcome_active.this, "вы не увидите своего положения на карте\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-                         Intent intent = new Intent(welcome_active.this,MainActivity.class);
+                         Toast.makeText(WelcomeActive.this, "вы не увидите своего положения на карте\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                         Intent intent = new Intent(WelcomeActive.this,MainActivity.class);
                          startActivity(intent);
                      }
 

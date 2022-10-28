@@ -133,6 +133,9 @@ public class CalcFragInst extends Fragment {
                 });
                 swipe.setBackgroundColor(cardview.getCardBackgroundColor().getDefaultColor());
                 return coordinatorLayout;
+            case 3:
+                view = inflater.inflate(R.layout.calc_frag_nfc, container, false);
+                return view;
         }
     }
     private class ListAdapter extends BaseAdapter {
@@ -186,7 +189,7 @@ public class CalcFragInst extends Fragment {
                         setCurrentText();
                 }
                 cardView.toggle();
-                MainActivity.menu.findItem(R.id.arrow_forward).setEnabled(true);
+                MainActivity.menu.findItem(R.id.arrow_forward).setVisible(true);
 
             });
             txt1.setText(text.get(position));

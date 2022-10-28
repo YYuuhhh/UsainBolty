@@ -1,15 +1,19 @@
 package com.example.usainbolty;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
 
 
 public class CalcFrag extends Fragment {
@@ -21,17 +25,61 @@ public class CalcFrag extends Fragment {
     public static TextView TextResult;
     public static TextView textResultInfo;
     public static TextView textResultTip;
+    int prevPg = 0;
 
     public CalcFrag (){ }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewPager = (getActivity()).findViewById(R.id.pager);
+
+        viewPager = view.findViewById(R.id.pager);
         viewPager.setUserInputEnabled(false);
         viewPager.setAdapter(
                 new PagerAdapter(this)
         );
         viewPager.setSaveEnabled(false);
+
+        TabLayout tabLayout = view.findViewById(R.id.tabLayout);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if(tab.getPosition()==1) {
+                    prevPg = viewPager.getCurrentItem();
+                    viewPager.setCurrentItem(3,false);
+                    MainActivity.menu.findItem(R.id.arrow_back).setVisible(false);
+                    MainActivity.menu.findItem(R.id.arrow_forward).setVisible(false);
+                    ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Автоматический считыватель");
+                }
+                else{
+                    viewPager.setCurrentItem(prevPg, false);
+                    switch(prevPg) {
+                        case 0:
+                            MainActivity.menu.findItem(R.id.arrow_back).setVisible(false);
+                            MainActivity.menu.findItem(R.id.arrow_forward).setVisible(true);
+                            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Выбор устройства");
+                            break;
+                        case 1:
+                            MainActivity.menu.findItem(R.id.arrow_back).setVisible(true);
+                            MainActivity.menu.findItem(R.id.arrow_forward).setVisible(true);
+                            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Время и расстояние");
+                            break;
+                        case 2:
+                            MainActivity.menu.findItem(R.id.arrow_back).setVisible(true);
+                            MainActivity.menu.findItem(R.id.arrow_forward).setVisible(false);
+                            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Результат");
+                            break;
+                        default:
+                            throw new IllegalStateException("Unexpected value: " + prevPg);
+                    }
+                }
+
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) { }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) { }
+        });
     }
 
     @Override
@@ -45,6 +93,7 @@ public class CalcFrag extends Fragment {
         private Fragment Fragment1 = new CalcFragInst(0);
         private Fragment Fragment2 = new CalcFragInst(1);
         private Fragment Fragment3 = new CalcFragInst(2);
+        private Fragment Fragment4 = new CalcFragInst(3);
 
         public PagerAdapter(@NonNull Fragment fragment) {
             super(fragment);
@@ -58,6 +107,8 @@ public class CalcFrag extends Fragment {
                     return Fragment2;
                 case 2:
                     return Fragment3;
+                case 3:
+                    return Fragment4;
                 default:
                     return Fragment1;
             }
@@ -65,7 +116,7 @@ public class CalcFrag extends Fragment {
 
         @Override
         public int getItemCount() {
-            return 3;
+            return 4;
         }
     }
 }

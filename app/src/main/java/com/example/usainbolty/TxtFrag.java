@@ -15,7 +15,7 @@ import com.google.android.material.tabs.TabLayout;
 
 public class TxtFrag extends Fragment {
 
-    private TabLayout tabLayout;
+    private TabLayout tabLayout2;
     private ViewPager2 viewPager2;
     private MFA adapter;
 
@@ -31,7 +31,7 @@ public class TxtFrag extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        tabLayout = view.findViewById(R.id.tabLayout);
+        tabLayout2 = view.findViewById(R.id.tabLayout);
         viewPager2 = view.findViewById(R.id.viewPager2);
         viewPager2.setSaveEnabled(false);
 
@@ -40,7 +40,7 @@ public class TxtFrag extends Fragment {
         viewPager2.setAdapter(adapter);
         viewPager2.setUserInputEnabled(false);
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout2.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager2.setCurrentItem(tab.getPosition());
