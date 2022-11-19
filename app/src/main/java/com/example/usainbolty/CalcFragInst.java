@@ -38,7 +38,6 @@ public class CalcFragInst extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        AppliancesList.add(new Appliances("Печь","Типичная деревенская печь",1,R.drawable.oven));
         AppliancesList.add(new Appliances("Аналоговые часы","Наручные часы швейцарского производства",2,R.drawable.watch));
         AppliancesList.add(new Appliances("Электрическая открывашка для консервов","Очень опасна для простых смертных",60,R.drawable.canopener));
         AppliancesList.add(new Appliances("Зарядное устройство","Зарядное устройство USB type-c",3,R.drawable.charger));

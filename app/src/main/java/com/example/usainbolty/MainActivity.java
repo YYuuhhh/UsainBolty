@@ -25,11 +25,13 @@ import com.yandex.mapkit.MapKitFactory;
 
 public class MainActivity extends AppCompatActivity {
     public static int b=0;
+    public static int qw=0;
     public static boolean logged=false;
     TipsFrag tipsFrag = new TipsFrag();
     TxtFrag txtFrag = new TxtFrag();
     CalcFrag calcFrag = new CalcFrag();
     MapFrag mapFrag = new MapFrag();
+    ChatFrag chatFrag = new ChatFrag();
     public static Menu menu = null;
     private FirebaseAnalytics mFirebaseAnalytics;
 
@@ -58,7 +60,13 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.arrow_back).setVisible(false);
                     menu.findItem(R.id.arrow_forward).setVisible(false);
                     getSupportActionBar().setTitle("Карта");
-                    MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mapFrag).commit();
+                    MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,mapFrag ).commit();
+                    return true;
+                case R.id.navigation_chat:
+                    menu.findItem(R.id.arrow_back).setVisible(false);
+                    menu.findItem(R.id.arrow_forward).setVisible(false);
+                    getSupportActionBar().setTitle("Чат");
+                    MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, chatFrag).commit();
                     return true;
             }
             return true;
