@@ -1,18 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:theme="@style/Theme.UsainBolty"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Работаем"
-        android:textSize="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <HorizontalScrollView
+        android:id="@+id/main_hsv"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:fadingEdge="none"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="0.0dip"
+        android:layout_marginTop="0.0dip"
+        android:layout_marginRight="0.0dip"
+        android:layout_marginBottom="0.0dip"
+        android:layout_alignParentBottom="true"
+        android:overScrollMode="ifContentScrolls">
+        <LinearLayout
+            android:id="@+id/main_hll"
+            android:layout_width="0dp"
+            android:background="#00000000"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/main"
+                android:layout_width="360dp"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.ekn.gruzer.gaugelibrary.HalfGauge
+                        android:id="@+id/halfGauge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-72dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="top"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/alert"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_gravity="right"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/attention" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/contentLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:behavior_peekHeight="115dp"
+                    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <ImageView
+                            android:id="@+id/arrowup"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            app:srcCompat="@drawable/ic_round_minimize_24"
+                            android:layout_marginBottom="0dp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_marginBottom="-6dp"
+                            android:theme="@style/Theme.UsainBolty">
+
+                            <ImageView
+                                android:id="@+id/infoIcon"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_gravity="start"
+                                android:padding="4dp"
+                                android:src="@drawable/ic_baseline_info_24" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="48dp"
+                                android:layout_weight="1"
+                                android:padding="8dp"
+                                android:text="More Info"
+                                android:textSize="24sp" />
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        android:id="@+id/swiperefresh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:theme="@style/Theme.UsainBolty"
+                        android:background="@color/white">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.hadiidbouk.charts.ChartProgressBar
+                                android:id="@+id/ChartProgressBar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:hdBarCanBeClick="true"
+                                app:hdBarHeight="170dp"
+                                app:hdBarWidth="7dp"
+                                app:hdBarRadius="10dp"
+                                app:hdMaxValue="10"
+                                app:hdEmptyColor="@color/empty"
+                                app:hdProgressColor="@color/progress"
+                                app:hdProgressClickColor="@color/progress_click"
+                                app:hdPinBackgroundColor="@color/pin_background"
+                                app:hdPinTextColor="@color/pin_text"
+                                app:hdPinPaddingBottom="5dp"
+                                app:hdBarTitleColor="@color/bar_title_color"
+                                app:hdBarTitleTxtSize="12sp"
+                                app:hdPinTxtSize="17sp"
+                                app:hdPinMarginTop="10dp"
+                                app:hdPinMarginBottom="55dp"
+                                app:hdPinMarginEnd="22dp"
+                                app:hdPinDrawable="@drawable/warning"
+                                app:hdBarTitleMarginTop="9dp"
+                                app:hdProgressDisableColor="@color/progress_disable"
+                                app:hdBarTitleSelectedColor="@color/teal_700"/>
+
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+                </LinearLayout>
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/new_fl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <include layout="@layout/gui_pg1_layout"/>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/old_fl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <include layout="@layout/gui_pg2_layout"/>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>
