@@ -1,9 +1,12 @@
 package com.example.usainbolty;
 
+import static com.example.usainbolty.CalcFragInst.click;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -53,8 +56,11 @@ public class TxtFrag extends Fragment {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                click++;
+                if(click>=10)
+                    Toast.makeText(getContext(),"You have unlocked dev options", Toast.LENGTH_SHORT).show();
             }
+
         });
 
     }

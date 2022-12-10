@@ -25,7 +25,7 @@ public class CalcFrag extends Fragment {
     public static TextView TextResult;
     public static TextView textResultInfo;
     public static TextView textResultTip;
-    int prevPg = 0;
+    int prevPg = 1;
 
     public CalcFrag (){ }
     @Override
@@ -33,6 +33,7 @@ public class CalcFrag extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         viewPager = view.findViewById(R.id.pager);
+        viewPager.setId(View.generateViewId());
         viewPager.setUserInputEnabled(false);
         viewPager.setAdapter(
                 new PagerAdapter(this)
@@ -44,27 +45,27 @@ public class CalcFrag extends Fragment {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if(tab.getPosition()==1) {
+                if(tab.getPosition()==0) {
                     prevPg = viewPager.getCurrentItem();
-                    viewPager.setCurrentItem(3,false);
+                    viewPager.setCurrentItem(0,true);
                     MainActivity.menu.findItem(R.id.arrow_back).setVisible(false);
                     MainActivity.menu.findItem(R.id.arrow_forward).setVisible(false);
-                    ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Автоматический считыватель");
+                    ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Счётчик");
                 }
                 else{
-                    viewPager.setCurrentItem(prevPg, false);
+                    viewPager.setCurrentItem(prevPg, true);
                     switch(prevPg) {
-                        case 0:
+                        case 1:
                             MainActivity.menu.findItem(R.id.arrow_back).setVisible(false);
                             MainActivity.menu.findItem(R.id.arrow_forward).setVisible(true);
                             ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Выбор устройства");
                             break;
-                        case 1:
+                        case 2:
                             MainActivity.menu.findItem(R.id.arrow_back).setVisible(true);
                             MainActivity.menu.findItem(R.id.arrow_forward).setVisible(true);
                             ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Время и расстояние");
                             break;
-                        case 2:
+                        case 3:
                             MainActivity.menu.findItem(R.id.arrow_back).setVisible(true);
                             MainActivity.menu.findItem(R.id.arrow_forward).setVisible(false);
                             ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Результат");
@@ -90,10 +91,10 @@ public class CalcFrag extends Fragment {
     }
 
     private static class PagerAdapter extends FragmentStateAdapter {
-        private Fragment Fragment1 = new CalcFragInst(0);
-        private Fragment Fragment2 = new CalcFragInst(1);
-        private Fragment Fragment3 = new CalcFragInst(2);
-        private Fragment Fragment4 = new CalcFragInst(3);
+        private Fragment Fragment4 = new CalcFragInst(0);
+        private Fragment Fragment1 = new CalcFragInst(1);
+        private Fragment Fragment2 = new CalcFragInst(2);
+        private Fragment Fragment3 = new CalcFragInst(3);
 
         public PagerAdapter(@NonNull Fragment fragment) {
             super(fragment);
@@ -103,14 +104,14 @@ public class CalcFrag extends Fragment {
         @Override
         public Fragment createFragment(int position) {
             switch (position) {
-                case 1:
-                    return Fragment2;
-                case 2:
-                    return Fragment3;
-                case 3:
+                case 0:
                     return Fragment4;
-                default:
+                case 1:
                     return Fragment1;
+                case 2:
+                    return Fragment2;
+                default:
+                    return Fragment3;
             }
         }
 

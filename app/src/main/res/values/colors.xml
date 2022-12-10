@@ -15,4 +15,6 @@
     <color name="darkgr">#1b691f</color>
     <color name="backgr">#120b2d</color>
     <color name="gray">#808080</color>
+    <color name="btn_preset_press">#55000000</color>
+    <color name="btn_preset_focus">#33000000</color>
 </resources>
