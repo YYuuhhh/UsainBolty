@@ -14,71 +14,123 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="180dp"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:background="@color/purple_200"
         android:src="@drawable/faq"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:id="@+id/cardochka"
-        android:visibility="invisible"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/micro"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="6dp"
-        app:cardBackgroundColor="#5f6a7d"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:background="@color/purple_200"
+        android:src="@drawable/microphone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/help"
+        app:layout_constraintVertical_bias="0.141" />
 
-        <LinearLayout
-            android:orientation="vertical"
+    <androidx.cardview.widget.CardView
+            android:id="@+id/cardochka"
+            android:visibility="invisible"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:checkable="true"
+            android:clickable="true"
+            android:elevation="8dp"
+            android:focusable="true"
+            app:cardElevation="8dp"
+            android:theme="@style/Theme.UsainBolty"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/faq1"
-                android:text="ВОПРОС 1"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </TextView>
-            <TextView
-                android:text="ВОПРОС 3"
-                android:id="@+id/faq2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </TextView>
-            <TextView
-                android:text="ВОПРОС 3"
-                android:id="@+id/faq3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </TextView>
-        </LinearLayout>
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp">
 
+                <TextView
+                    android:id="@+id/faqTxt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="1)Как записаться ко врачу?"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/faqTxt2"
+                    />
 
+                <TextView
+                    android:id="@+id/faqTxt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="2)У меня не работает карта,не вижу своего местоположения"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    app:layout_constraintBottom_toTopOf="@+id/faqTxt3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/faqTxt1" />
 
+                <TextView
+                    android:id="@+id/faqTxt3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="3)Не работает счетчик электромагнитной индукции"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/faqTxt2"
+                    app:layout_constraintBottom_toTopOf="@+id/faqTxt4"
+                    />
 
+                <TextView
+                    android:id="@+id/faqTxt4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="4)Как можно провести дистанционную консультацию со врачом?"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/faqTxt3"
+                    app:layout_constraintBottom_toTopOf="@+id/faqTxt5"
+                    />
 
+                <TextView
+                    android:id="@+id/faqTxt5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="5)Рассказать шутку"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/faqTxt4"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
-
-
-
-    </androidx.cardview.widget.CardView>
-
-
-
-
-
-
-
-
-
-
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
 
     <androidx.recyclerview.widget.RecyclerView

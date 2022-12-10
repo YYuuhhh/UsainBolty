@@ -1,5 +1,11 @@
 package com.example.usainbolty;
 
+
+
+import static com.example.usainbolty.allMassives.Massiv2.LL2;
+import static com.example.usainbolty.allMassives.Massiv1.LL1;
+import static com.example.usainbolty.allMassives.Massiv3.LL3;
+
 import android.graphics.Color;
 import android.graphics.PointF;
 import android.os.Bundle;
@@ -13,7 +19,6 @@ import androidx.fragment.app.Fragment;
 import com.yandex.mapkit.Animation;
 import com.yandex.mapkit.MapKit;
 import com.yandex.mapkit.MapKitFactory;
-import com.yandex.mapkit.geometry.Circle;
 import com.yandex.mapkit.geometry.Point;
 import com.yandex.mapkit.layers.ObjectEvent;
 import com.yandex.mapkit.map.CameraPosition;
@@ -31,10 +36,14 @@ public class MapFrag extends Fragment implements UserLocationObjectListener {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         MapKitFactory.initialize(getContext());
         MapKit mapKit = MapKitFactory.getInstance();
         mapview = getActivity().findViewById(R.id.mapview);
+
+
+        int i=0;
+        int j=0;
+
         mapview.getMap().setNightModeEnabled(MainActivity.b == 1);
         mapview.getMap().move(
                 new CameraPosition(new Point(55.160607, 61.370242), 11.0f, 0.0f, 0.0f),
@@ -44,6 +53,18 @@ public class MapFrag extends Fragment implements UserLocationObjectListener {
         userLocationLayer.setVisible(true);
         userLocationLayer.setHeadingEnabled(true);
         userLocationLayer.setObjectListener(this);
+        i=0;
+
+        for(int q=0;q<2000;q++){
+            mapview.getMap().getMapObjects().addPlacemark(new Point(LL1[i], LL1[i+1]));
+            mapview.getMap().getMapObjects().addPlacemark(new Point(LL2[i], LL2[i+1]));
+            mapview.getMap().getMapObjects().addPlacemark(new Point(LL3[i], LL3[i+1]));
+            i=i+2;
+
+
+        }
+
+        mapview.getMap().getMapObjects().addPlacemark(new Point(55.160607, 61.370242),ImageProvider.fromResource(getContext(),R.drawable.redcrcl,true));
     }
 
     @Override

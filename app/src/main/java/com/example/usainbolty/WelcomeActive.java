@@ -17,6 +17,7 @@ public class WelcomeActive extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_active);
      Thread thread = new Thread(){
@@ -53,6 +54,7 @@ public class WelcomeActive extends AppCompatActivity {
                          .setPermissionListener(permissionlistener)
                          .setDeniedMessage("Рекомендуем включить доступ, чтобы получить более полезную для вас информацию\n\n[Setting] > [Permission]")
                          .setPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
+                         .setPermissions(Manifest.permission.RECORD_AUDIO)
                          .check();
              }
          }
