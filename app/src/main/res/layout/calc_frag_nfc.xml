@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:theme="@style/Theme.UsainBolty"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/layouter"
+        android:foreground="@drawable/window_dim">
 
     <HorizontalScrollView
         android:id="@+id/main_hsv"
@@ -21,17 +25,18 @@
         android:layout_marginRight="0.0dip"
         android:layout_marginBottom="0.0dip"
         android:layout_alignParentBottom="true"
-        android:overScrollMode="ifContentScrolls">
+        android:overScrollMode="never">
         <LinearLayout
             android:id="@+id/main_hll"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:background="#00000000"
             android:orientation="horizontal"
             android:layout_height="match_parent">
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:id="@+id/main"
-                android:layout_width="360dp"
-                android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -40,7 +45,7 @@
 
                     <com.ekn.gruzer.gaugelibrary.HalfGauge
                         android:id="@+id/halfGauge"
-                        android:layout_width="match_parent"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="-72dp"
                         android:layout_marginRight="16dp"
@@ -109,7 +114,7 @@
                                 android:src="@drawable/ic_baseline_info_24" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="48dp"
                                 android:layout_weight="1"
@@ -175,17 +180,32 @@
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:id="@+id/new_fl"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
                 <include layout="@layout/gui_pg1_layout"/>
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:id="@+id/old_fl"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
                 <include layout="@layout/gui_pg2_layout"/>
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
         </LinearLayout>
     </HorizontalScrollView>
-</LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Данная функция пока не поддерживается на вашем устройстве"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/layouter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

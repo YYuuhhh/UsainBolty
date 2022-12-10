@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -186,8 +187,8 @@ public class CalcFragInst extends Fragment {
                 return coordinatorLayout;
             default:
                 view = inflater.inflate(R.layout.calc_frag_nfc, container, false);
-
                 HorizontalScrollView scrollView = view.findViewById(R.id.main_hsv);
+                View layout = view.findViewById(R.id.layouter);
 
                 scrollView.setOnTouchListener(this::onTouch);
 
@@ -208,13 +209,14 @@ public class CalcFragInst extends Fragment {
 
                 fullGauge.setMinValue(0.0);
                 fullGauge.setMaxValue(150.0);
-                fullGauge.setValue(140.0);
+                fullGauge.setValue(0.0);
 
-                fullGauge.addRange(range1);
-                fullGauge.addRange(range2);
-                fullGauge.addRange(range3);
                 Log.d("fdfdfdfdfd", Build.MODEL);
                 if(Build.MODEL == "G2333") {
+
+                    fullGauge.addRange(range1);
+                    fullGauge.addRange(range2);
+                    fullGauge.addRange(range3);
 
                     Handler handler = new Handler(Looper.getMainLooper());
 
@@ -274,8 +276,7 @@ public class CalcFragInst extends Fragment {
 
                 scaleDown.start();
 
-                WindowManager.LayoutParams wp = getActivity().getWindow().getAttributes();
-                wp.dimAmount = 0.75f;
+                layout.getForeground().setAlpha(210);
 
                 return view;
         }

@@ -150,34 +150,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        nav = findViewById(R.id.nav_view);
-        if(!logged){
-            TapTargetView.showFor(this,
-                    TapTarget.forView(nav,"Панель Навигации","Здесь вы можете моментально выбирать инетересный вам раздел приложения и переходить к нему")
-                            .outerCircleColor(R.color.teal_200)
-                            .outerCircleAlpha(0.96f)
-                            .targetCircleColor(R.color.white)
-                            .titleTextSize(30)
-                            .titleTextColor(R.color.white)
-                            .descriptionTextSize(20)
-                            .descriptionTextColor(R.color.black)
-                            .textColor(R.color.black)
-                            .textTypeface(Typeface.SANS_SERIF)
-                            .dimColor(R.color.black)
-                            .drawShadow(true)
-                            .cancelable(true)
-                            .tintTarget(true)
-                            .transparentTarget(true)
-                            .targetRadius(80),
-                    new TapTargetView.Listener(){
-
-                        @Override
-                        public void onTargetClick(TapTargetView view) {
-                            super.onTargetClick(view);
-
-                        }
-                    });
-        }
 
         createNotificationChannel();
         Intent intent = new Intent(MainActivity.this,ReminderBroadcast.class);
@@ -195,7 +167,9 @@ public class MainActivity extends AppCompatActivity {
             logged=true;
         }
         getSupportActionBar().setTitle("Выбор устройства");
+
         setContentView(R.layout.main_activity);
+
         ((BottomNavigationView) findViewById(R.id.nav_view)).setOnItemSelectedListener(this.navListener);
         if (paramBundle == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new CalcFrag()).commit();
